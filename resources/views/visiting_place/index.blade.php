@@ -108,21 +108,9 @@
     </div>
 
     <div id="controls" class="col-md-6 col-lg-6 col-sm-12 col-xm-12 pull-left" style="width: 300px">
-        <select id="country">
-            <option value="all">All</option>
-            <option value="au">Australia</option>
-            <option value="br">Brazil</option>
-            <option value="ca">Canada</option>
-            <option value="fr">France</option>
-            <option value="de">Germany</option>
-            <option value="mx">Mexico</option>
-            <option value="nz">New Zealand</option>
-            <option value="it">Italy</option>
-            <option value="za">South Africa</option>
-            <option value="es">Spain</option>
-            <option value="pt">Portugal</option>
-            <option value="us" selected>U.S.A.</option>
-            <option value="uk">United Kingdom</option>
+        <select id="country" hidden="hidden">
+            <option value="lka" selected="selected">Sri Lanka</option>
+
         </select>
     </div>
 </div>
@@ -166,69 +154,21 @@
     var map, places, infoWindow;
     var markers = [];
     var autocomplete;
-    var countryRestrict = {'country': 'us'};
+    var countryRestrict = {'country': 'lka'};
     var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
     var hostnameRegexp = new RegExp('^https?://.+?/');
 
     var countries = {
-        'au': {
-            center: {lat: -25.3, lng: 133.8},
-            zoom: 4
-        },
-        'br': {
-            center: {lat: -14.2, lng: -51.9},
-            zoom: 3
-        },
-        'ca': {
-            center: {lat: 62, lng: -110.0},
-            zoom: 3
-        },
-        'fr': {
-            center: {lat: 46.2, lng: 2.2},
-            zoom: 5
-        },
-        'de': {
-            center: {lat: 51.2, lng: 10.4},
-            zoom: 5
-        },
-        'mx': {
-            center: {lat: 23.6, lng: -102.5},
-            zoom: 4
-        },
-        'nz': {
-            center: {lat: -40.9, lng: 174.9},
-            zoom: 5
-        },
-        'it': {
-            center: {lat: 41.9, lng: 12.6},
-            zoom: 5
-        },
-        'za': {
-            center: {lat: -30.6, lng: 22.9},
-            zoom: 5
-        },
-        'es': {
-            center: {lat: 40.5, lng: -3.7},
-            zoom: 5
-        },
-        'pt': {
-            center: {lat: 39.4, lng: -8.2},
-            zoom: 6
-        },
-        'us': {
-            center: {lat: 37.1, lng: -95.7},
-            zoom: 3
-        },
-        'uk': {
-            center: {lat: 54.8, lng: -4.6},
-            zoom: 5
+        'lka': {
+            center: {lat: 7.8731, lng: 80.7718},
+            zoom: 8
         }
     };
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-            zoom: countries['us'].zoom,
-            center: countries['us'].center,
+            zoom: countries['lka'].zoom,
+            center: countries['lka'].center,
             mapTypeControl: false,
             panControl: false,
             zoomControl: false,
@@ -273,7 +213,7 @@
     function search() {
         var search = {
             bounds: map.getBounds(),
-            types: ['museum','lodging']
+            types: ['museum','lodging','spa']
         };
 
         places.nearbySearch(search, function(results, status) {
@@ -315,10 +255,10 @@
     // Also center and zoom the map on the given country.
     function setAutocompleteCountry() {
         var country = document.getElementById('country').value;
-        if (country == 'all') {
-            autocomplete.setComponentRestrictions({'country': []});
-            map.setCenter({lat: 15, lng: 0});
-            map.setZoom(2);
+        if (country == 'lka') {
+            autocomplete.setComponentRestrictions({'country': country});
+            map.setCenter({lat: 7.8731, lng: 80.7718});
+            map.setZoom(8);
         } else {
             autocomplete.setComponentRestrictions({'country': country});
             map.setCenter(countries[country].center);
@@ -434,7 +374,7 @@
         }
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNLpeAyelrFUasRcA1P8or2w4JVv7d01E&libraries=places&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAcHWvVwDXi2Z58jyrZnQjDQrB2wP2JeY&libraries=places&callback=initMap"
         async defer></script>
 
 </body>

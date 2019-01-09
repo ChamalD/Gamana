@@ -129,7 +129,7 @@
     }
 </script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNLpeAyelrFUasRcA1P8or2w4JVv7d01E&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAcHWvVwDXi2Z58jyrZnQjDQrB2wP2JeY&callback=initMap">
 </script>
 <br/><br/>
 <div class="container" style="background-color: white">
@@ -149,8 +149,7 @@
                           name="body"
                           spellcheck="false"
                           rows="3"
-                          class="form-control autosize-target text-left">
-                </textarea>
+                          class="form-control autosize-target text-left"></textarea>
             </div>
 
             <div class="form-group">
