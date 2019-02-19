@@ -52,11 +52,7 @@ $today = Carbon::today();
                                 </div>
                                 <div _ngcontent-c25="" class="col-lg-4 col-md-2 col-sm-2 col-12 room-desc" style="padding-left: 200px">
                                     <div _ngcontent-c25="" class="room-name"><h3>{{ $room_details->room_name}}</h3></div>
-                                    <div _ngcontent-c25="" class="room-bed">
-
-                                          <h4>{{ $room_details->room_type}} </h4>
-
-                                    </div>
+                                   
                                     <!----><div _ngcontent-c25="" class="room-options">
                                         <ul _ngcontent-c25="">
                                             <!----><li _ngcontent-c25="">

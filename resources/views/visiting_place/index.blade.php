@@ -24,12 +24,15 @@
             font-size: 12px;
         }
         #map {
+            margin-left: 50px;
+            margin-top: 50px;
             width: 850px;
         }
         #listing {
             position: relative;
-            width: 450px;
-            height: 470px;
+            margin-top: 50px;
+            width: 400px;
+            height: 700px;
             overflow: auto;
 
             cursor: pointer;

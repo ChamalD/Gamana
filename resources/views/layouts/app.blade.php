@@ -10,6 +10,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
@@ -102,7 +105,30 @@
 
 </div>
     @yield('content')
+
+
+
 </body>
+
+<div class="card" style="width: 28rem; margin-top: 50px; margin-left: 50px;">
+  <img class="card-img-top" src="..." alt="Card image cap" style="height: 100px;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+
+
 
 <div style="margin-top: 10%">
     <div class="row">
@@ -155,13 +181,13 @@
         <div class="col-lg-pull-6 ml-auto text-center">
             <i class="fa fa-phone fa-3x mb-3 sr-contact" data-sr-id="8"
                style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
-            <p>+9476699402</p>
+            <p>+94716379457</p>
         </div>
         <div class="col-lg-pull-6 mr-auto text-center">
             <i class="fa fa-envelope-o fa-3x mb-3 sr-contact" data-sr-id="9"
                style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
             <p>
-                <a href="mailto:your-email@your-domain.com">dilshan.15@cse.mrt.ac.lk</a>
+                <a href="mailto:your-email@your-domain.com">developer@gamana.lk</a>
             </p>
         </div>
     </div>
@@ -209,7 +235,7 @@
     <section class="index-social">
         <div class="container">
             <div class="row index-social-link text-center">
-                <p class="copy-c">Travel Aid System 2018. Semester 5 Project.</p>
+                <p class="copy-c">© Gamana Sri Lanka 2019.</p>
             </div>
         </div>
     </section>
