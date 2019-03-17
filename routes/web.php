@@ -38,6 +38,8 @@ Route::post('plane_search/search', 'SearchFlightController@search')->name('plane
 Route::resource('hotel_search','SearchHotelController');
 Route::post('hotel_search/search', 'SearchHotelController@search')->name('hotel_search.search');
 
+Route::resource('travel_packages','PackageController');
+Route::resource('travel_partner','TravelPartnerController');
 
 
 

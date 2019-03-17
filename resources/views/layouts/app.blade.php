@@ -10,8 +10,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -47,11 +47,9 @@
                     </div>
                 </div>
                 <a class="dropbtn" href="{{ route('visiting_place.index') }}">DESTINATION</a>
-                <div class="dropdown">
                     
-                   
-
-                </div>
+                <a class="dropbtn" href="{{ route('travel_packages.index') }}">PACKAGES
+                <a class="dropbtn" href="{{ route('travel_partner.index') }}">TRAVEL PARTNER</a>
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -110,29 +108,10 @@
 
 </body>
 
-<div class="card" style="width: 28rem; margin-top: 50px; margin-left: 50px;">
-  <img class="card-img-top" src="..." alt="Card image cap" style="height: 100px;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
 
-
-
-
-<div style="margin-top: 10%">
+<div style="padding-top:10%">
     <div class="row">
-        <div class="col-lg-12 text-center" style="margin-bottom: 50px">
+        <div class="col-lg-12 text-center" style="padding-bottom: 50px">
             <h2 class="section-heading text-uppercase">Services</h2>
             <hr/>
             <h3 class="section-subheading text-muted">Plan Your Journey In Easy Way.</h3>
