@@ -47,31 +47,51 @@ table tr td {
 
 </head>
 <body>
-
+{{$searchResult}}
+<br/>
+{{$searchDetails->input('ReligiousPlaces')}}
 <div class="selectPackage">
-	<form action="/action_page.php" method="get">
+	<form method="post" action="{{route('travel_packages.search')}}">
+          					{{ csrf_field() }}
 		<table>
 			<tr>
-				<td> 
-					<input type="checkbox" name="vehicle" value="Bike"> I have a bike<br>
-				</td>
 				<td>
-					<input type="checkbox" name="vehicle" value="Car"> I have a car<br>
-				<td>
-					<input type="checkbox" name="vehicle" value="Car"> I have a car<br>
-				<td>
-					<input type="checkbox" name="vehicle" value="Car"> I have a car<br>
-				</td>
+					<input type="checkbox" name="WildLife" value="Wild Life" 
+					<?php 
+						if ($searchDetails->input('WildLife')==="Wild Life")
+						{
+							echo('checked');
+						}
 
+					?>> Wild Life<br>
+				</td>
+				<td>
+					<input type="checkbox" name="HistoricalPlaces" value="Historical Places" 
+					<?php 
+						if ($searchDetails->input('HistoricalPlaces')==="Historical Places")
+						{
+							echo('checked');
+						}
+
+					?>> Historical Places<br>
+				</td>
+				<td>
+					<input type="checkbox" name="ReligiousPlaces" value="Religious Places"> Religious Places<br>
+				</td>
+				<td>
+					<input type="checkbox" name="Cultural" value="Cultural"> Cultural<br>
+				</td>
 			</tr>
 			<tr>
-				<td> 
-					<input type="checkbox" name="vehicle" value="Bike"> I have a bike<br>
+				<td>
+					<input type="checkbox" name="Citylife" value="City life"> City life<br>
 				</td>
 				<td>
-					<input type="checkbox" name="vehicle" value="Car"> I have a car<br>
+					<input type="checkbox" name="vehicle" value="Car"> dfff<br>
+				</td>
 				<td>
-					<input type="checkbox" name="vehicle" value="Car"> I have a car<br>
+					<input type="checkbox" name="vehicle" value="Car"> I have a bow<br>
+				</td>
 				<td>
 					<input type="checkbox" name="vehicle" value="Car"> I have a car<br>
 				</td>
@@ -81,19 +101,14 @@ table tr td {
 				<td style="padding-left: 20px;">No of Days</td>
 				<td style="padding-top: 25px;">
 					<div class="persent-one less-per">
-                                
-                       <input type="number" required min=3 max="7" name="no_passengers" class="textboxstyle" id="to-date" value="3" style="color: black; width: 100px;">
+                       <input type="number" required min=3 max="7" name="no_days" class="textboxstyle" id="to-date" value="3" style="color: black; width: 100px;">
                     </div>
 				</td>
 				<td></td>
 				<td> <input type="Submit" name="submit" value="Search" class="btn btn-info " id="srch" style="width: 100px"></td>
 			</tr>
 		</table>
-	    
 	</form>
-
-
-
 </div>
 <br/>
 <h2 style="padding-left: 150px; padding-bottom: 0.5px;">Packages</h2>
