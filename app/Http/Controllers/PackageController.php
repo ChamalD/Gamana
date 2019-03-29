@@ -27,27 +27,74 @@ class PackageController extends Controller
         $HistoricalPlaces = $request->input('HistoricalPlaces');
         $ReligiousPlaces = $request->input('ReligiousPlaces');
         $Cultural = $request->input('Cultural');
-        $Citylife = $request->input('Citylife');
-        
-        $displayResult = [];
+        $City = $request->input('City');
 
+        $Adventure = $request->input('Adventure');
+        $Scenery = $request->input('Scenery');
+        $Beach = $request->input('Beach');
+
+        $displayResult= [];
         $searchResult = DB::table('packages')
             ->join('category', 'packages.id', '=', 'category.package_id')  
             ->orderBy('package_id')      
             ->get();
         
-        if ($HistoricalPlaces){
-            array_push($displayResult, $searchResult->where('category', $HistoricalPlaces));
-        } 
-        if ($ReligiousPlaces) {
-            array_push($displayResult, $searchResult->where('category', $ReligiousPlaces));
+        $displayResultWildLife = $searchResult->where('category', $WildLife);
+        $displayResultHistoricalPlaces = $searchResult->where('category', $HistoricalPlaces);
+        $displayResultReligiousPlaces = $searchResult->where('category', $ReligiousPlaces);
+        $displayResultCultural = $searchResult->where('category', $Cultural);
+
+        $displayResultCity = $searchResult->where('category', $City);
+        $displayResultAdventure = $searchResult->where('category', $Adventure);
+        $displayResultScenery = $searchResult->where('category', $Scenery);
+        $displayResultBeach = $searchResult->where('category', $Beach);
+
+        if ($WildLife){
+           array_push($displayResult, $displayResultWildLife);
+        } else {
+            array_push($displayResult, null);
         }
 
+        if ($HistoricalPlaces){
+           array_push($displayResult, $displayResultHistoricalPlaces);
+        } else {
+            array_push($displayResult, null);
+        }
 
+        if ($ReligiousPlaces){
+           array_push($displayResult, $displayResultReligiousPlaces);
+        } else {
+            array_push($displayResult, null);
+        }
 
+        if ($Cultural){
+           array_push($displayResult, $displayResultCultural);
+        } else {
+            array_push($displayResult, null);
+        }
 
-        $displayResult = json_encode($displayResult);
-        return view('travel_packages.index', ['searchResult' => $displayResult, 'searchDetails' => $request]);
+        if ($City){
+           array_push($displayResult, $displayResultCity);
+        } else {
+            array_push($displayResult, null);
+        }
+        if ($Adventure){
+           array_push($displayResult, $displayResultAdventure);
+        } else {
+            array_push($displayResult, null);
+        }
+        if ($Scenery){
+           array_push($displayResult, $displayResultScenery);
+        } else {
+            array_push($displayResult, null);
+        }
+        if ($Beach){
+           array_push($displayResult, $displayResultBeach);
+        } else {
+            array_push($displayResult, null);
+        }
+      
+        return view('travel_packages.show', ['searchResult' => $displayResult, 'searchDetails' => $request]);
     }
     /**
      * Show the form for creating a new resource.

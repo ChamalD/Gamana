@@ -47,36 +47,20 @@ table tr td {
 
 </head>
 <body>
-{{$searchResult}}
 <br/>
-{{$searchDetails->input('ReligiousPlaces')}}
 <div class="selectPackage">
 	<form method="post" action="{{route('travel_packages.search')}}">
           					{{ csrf_field() }}
 		<table>
 			<tr>
 				<td>
-					<input type="checkbox" name="WildLife" value="Wild Life" 
-					<?php 
-						if ($searchDetails->input('WildLife')==="Wild Life")
-						{
-							echo('checked');
-						}
-
-					?>> Wild Life<br>
+					<input type="checkbox" name="WildLife" value="WildLife"> Wild Life<br>
 				</td>
 				<td>
-					<input type="checkbox" name="HistoricalPlaces" value="Historical Places" 
-					<?php 
-						if ($searchDetails->input('HistoricalPlaces')==="Historical Places")
-						{
-							echo('checked');
-						}
-
-					?>> Historical Places<br>
+					<input type="checkbox" name="HistoricalPlaces" value="HistoricalPlaces"> Historical Places<br>
 				</td>
 				<td>
-					<input type="checkbox" name="ReligiousPlaces" value="Religious Places"> Religious Places<br>
+					<input type="checkbox" name="ReligiousPlaces" value="ReligiousPlaces"> Religious Places<br>
 				</td>
 				<td>
 					<input type="checkbox" name="Cultural" value="Cultural"> Cultural<br>
@@ -84,16 +68,16 @@ table tr td {
 			</tr>
 			<tr>
 				<td>
-					<input type="checkbox" name="Citylife" value="City life"> City life<br>
+					<input type="checkbox" name="City" value="City"> City<br>
 				</td>
 				<td>
-					<input type="checkbox" name="vehicle" value="Car"> dfff<br>
+					<input type="checkbox" name="Adventure" value="Adventure"> Adventure<br>
 				</td>
 				<td>
-					<input type="checkbox" name="vehicle" value="Car"> I have a bow<br>
+					<input type="checkbox" name="Scenery" value="Scenery"> Scenery<br>
 				</td>
 				<td>
-					<input type="checkbox" name="vehicle" value="Car"> I have a car<br>
+					<input type="checkbox" name="Beach" value="Beach"> Beach<br>
 				</td>
 
 			</tr>
@@ -111,21 +95,6 @@ table tr td {
 	</form>
 </div>
 <br/>
-<h2 style="padding-left: 150px; padding-bottom: 0.5px;">Packages</h2>
-	<br/>
-
-<div style="padding-left: 160px;">
-
-	<div class="col-lg-4 col-md-4">
-		<div class="card">
-		  <img src="img_avatar.png" alt="Avatar" >
-		  <div class="container">
-		    <h4><b>John Doe</b></h4> 
-		    <p>Architect & Engineer</p> 
-		  </div>
-		</div>
-		<br/><br/>
-	</div>
 
 </div>
  @endsection
