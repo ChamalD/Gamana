@@ -15,7 +15,7 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 300px;
-  height: 380px;
+  height: 420px;
   border-color: grey;
 }
 .innerCard {
@@ -30,7 +30,9 @@
 }
 
 .container {
-  padding: 2px 16px;
+  width: 300px;
+  margin-left: 0px;
+  margin-right: 1px;
 }
 table tr td {
 	padding-top: 20px;
@@ -51,6 +53,19 @@ table tr td {
 .col-lg-4{
 	width: 30%;
 }
+.col-lg-3{
+	width: 300px;
+}
+.h6 {
+	width: 280px;
+}
+.h5 {
+	width: 280px;
+}
+.p{
+	width: 400px;
+}
+
 </style>
 
 </head>
@@ -166,7 +181,9 @@ table tr td {
 				<td style="padding-left: 20px;">No of Days</td>
 				<td style="padding-top: 25px;">
 					<div class="persent-one less-per">
-                       <input type="number" required min=3 max="7" name="no_days" class="textboxstyle" id="to-date" value="3" style="color: black; width: 100px;">
+                       <input type="number" required min=3 max="7" class="textboxstyle" name="selectedDates" 
+                       value="{{$searchDetails->input('selectedDates')}}"
+                       style="color: black; width: 100px;">
                     </div>
 				</td>
 				<td></td>
@@ -179,53 +196,61 @@ table tr td {
 <br/>
 
 
-
-
-
 <h2 style="padding-left: 150px; padding-bottom: 0.5px;">Packages</h2>
-
+<hr>
 @foreach ($searchResult as $element)
-	@if($element != null)
-		@foreach($element as $searchR)
-		
-			<div style="padding-left: 160px;">
+	<form method="post" action="{{route('travel_packages.addPackage')}}">
+          					{{ csrf_field() }}
 
-				<div class="col-lg-4 col-md-4 col-sm-4" style="margin-bottom: 30px;">
-					<div class="card">
-				  		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Sigiriya.jpg/300px-Sigiriya.jpg" width="300px" height="150px" alt="Avatar" >
-				  		<div class="container">
-				    	<h4><b>{{$searchR->package_name}}</b></h4>
-				    		<div class="col-lg-3 col-md-3" style="padding-left: 1px;">
-				    			<p><h6>{{$searchR->description}}</h6></p> 
+        <input  hidden value="{{$element->package_id}}" name="package_id"> 
+		<div style="padding-left: 160px;">
+					<div class="col-lg-4 col-md-4 col-sm-4" style="margin-bottom: 30px;">
+						<div class="card">
+					  		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Sigiriya.jpg/300px-Sigiriya.jpg" width="300px" height="150px" alt="Avatar" >
+					  		<div class="container">
+					    	<h4><b>{{$element->package_name}}</b></h4>
+					    		<div class="col-lg-3 col-md-3" style="padding-left: 1px;;">
+					    			<p><h6>{{$element->description}}</h6></p> 
+								</div>
 							</div>
-				  		</div>
-					  <?php
-							$catagories = $searchR->tag;
-							$data   = explode(',', $catagories);
-						?>
-						<div class="innerCard" style="padding-left: 10px;">
-							
-							@foreach($data as $data)
+							<div class="container">
 
-						    <div class="label col-lg-2 col-md-4 col-sm-4" style="width: auto; height: 20px; padding: 5px; margin: 6px; margin-bottom: 5px;">			{{$data}}
-						    </div>
+								<div class="col-lg-3 col-md-3" style="padding-left: 1px;">
+				    				<a>view more</a>
+								</div>
+							</div>
+					  		<div class="container">
 
-			                @endforeach
+								<div class="col-lg-3 col-md-3" style="padding-left: 1px;">
+				    				<p><b><h5>Days: {{$element->package_days}}</h5></b></p> 
+								</div>
 
-						 </div>
-						 <br/>
-						
-						<div class="col-lg-3 col-md-3" style="padding-left: 1px; width: 100%; padding-left: 20px">
-			    			<p><b><h6>Days: {{$searchR->package_days}}</h6></b></p> 
+					  		</div>
+						  <?php
+								$catagories = $element->tag;
+								$data   = explode(',', $catagories);
+							?>
+							<div class="innerCard" style="padding-left: 10px;">
+								
+								@foreach($data as $data)
+
+							    <div class="label col-lg-2 col-md-4 col-sm-4" style="width: auto; height: 20px; padding: 5px; margin: 6px; margin-bottom: 5px;">			{{$data}}
+							    </div>
+
+				                @endforeach
+
+							 </div>
+							 <div class="container" >
+								
+									<div class="col-lg-3 col-md-3" style="padding-left: 180px;">
+					    				<input type="Submit" name="submit" value="Add Package" class="btn btn-info cst-btn" id="srch" style="padding: 4px 8px; font-size: 12px;">
+									</div>		                
+							 </div>
+							 <br/>
 						</div>
-
 					</div>
 				</div>
-			</div>	
-
-		@endforeach
-	@endif
-
+			</form>
 @endforeach
 
 

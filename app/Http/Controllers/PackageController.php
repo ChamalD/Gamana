@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Packages;
 use App\Categories;
+use App\SelectedPackage;
 use Illuminate\Support\Facades\Auth;
 
 class PackageController extends Controller
@@ -22,7 +23,7 @@ class PackageController extends Controller
     }
 
     public function search(Request $request) {
-
+        $selectDates = $request->input('selectedDates');
         $WildLife = $request->input('WildLife');
         $HistoricalPlaces = $request->input('HistoricalPlaces');
         $ReligiousPlaces = $request->input('ReligiousPlaces');
@@ -35,7 +36,8 @@ class PackageController extends Controller
 
         $displayResult= [];
         $searchResult = DB::table('packages')
-            ->join('category', 'packages.id', '=', 'category.package_id')  
+            ->join('category', 'packages.id', '=', 'category.package_id')
+            ->where('package_days', $selectDates) 
             ->orderBy('package_id')      
             ->get();
         
@@ -93,8 +95,19 @@ class PackageController extends Controller
         } else {
             array_push($displayResult, null);
         }
-      
-        return view('travel_packages.show', ['searchResult' => $displayResult, 'searchDetails' => $request]);
+        $selectedPackages=[];
+        $selectedPackageIds=[];
+        foreach ($displayResult as $keyElement) {
+            if ($keyElement !== null){
+                foreach ($keyElement as $packages) {
+                    if (!(in_array($packages->package_id, $selectedPackageIds))){
+                        array_push($selectedPackages, $packages);
+                        array_push($selectedPackageIds, $packages->package_id);
+                    }
+                }
+            }
+        }
+        return view('travel_packages.show', ['searchResult' => $selectedPackages, 'searchDetails' => $request ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -104,6 +117,31 @@ class PackageController extends Controller
     public function create()
     {
         //
+    }
+    /**
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function addPackage(Request $request)
+    {
+        $package_id = $request->input('package_id');
+
+        
+
+        if(Auth::check()){
+            $selectPackage = SelectedPackage::create([                                //store comment data in the comment table
+                'user_id' => Auth::user()->id,
+                'package_id' => $request->input('package_id')
+            ]);
+            if($selectPackage){
+                return back()->with('success' , 'Package selected successfully');
+                // return view('travel_packages.show',['searchResult' => $selectedPackages, 'searchDetails' => $request ])
+                // ->with('success' , 'Package selected successfully');  
+            }
+        }
+
+        return back()->withInput()->with('errors', 'Error selecting a package');
+
     }
 
     /**

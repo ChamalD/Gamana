@@ -85,7 +85,8 @@ table tr td {
 				<td style="padding-left: 20px;">No of Days</td>
 				<td style="padding-top: 25px;">
 					<div class="persent-one less-per">
-                       <input type="number" required min=3 max="7" name="no_days" class="textboxstyle" id="to-date" value="3" style="color: black; width: 100px;">
+
+                       <input type="number" required min=3 max="7" class="textboxstyle" name="selectedDates" value="3" style="color: black; width: 100px;">
                     </div>
 				</td>
 				<td></td>

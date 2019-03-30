@@ -10,20 +10,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- -->
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 
 </head>
+
 <body>
-
-
 <div id="app">
-    <hr/>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
@@ -97,6 +92,7 @@
     </nav>
 
 </div>
+
 <div class="container">
     @include('partials.success')
     @include('partials.errors')
@@ -171,7 +167,6 @@
         </div>
     </div>
 </div>
-
 <!-- Scripts -->
 <footer style="margin-top: 10%">
     <section class="index-link">
