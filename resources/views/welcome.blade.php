@@ -28,7 +28,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="http://www.airlinemarketing.com.au/media/1080/home-banner-1600x550.png?mode=pad&width=1600&height=550&rnd=131121963350000000" alt="Slide 3" draggable="false" width="100%">
+            <img src="/images/Logo2.1.jpg" alt="Slide 3" draggable="false" width="100%">
             <div class="carousel-caption">
                 ...
             </div>

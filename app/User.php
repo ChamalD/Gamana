@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [                                 //model of the user map with the user table
-        'first_name', 'last_name', 'gender', 'telephone_no', 'role_id', 'email', 'password',
+        'first_name', 'last_name', 'gender', 'country', 'telephone_no', 'role_id', 'email', 'password',
     ];
 
     /**

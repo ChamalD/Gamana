@@ -96,6 +96,7 @@ class HotelBookingController extends Controller
             'capacity' =>$request->input('capacity1'),
             'price' => $request->input('amount1')
         ]);
+        
         if ($room1){
             return view('hotel_booking.addRoom',['hotelID'=>$id])
                 ->with('success' , 'Room Added Successfully');             //check the validate and return to next view

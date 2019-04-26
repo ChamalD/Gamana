@@ -23,8 +23,11 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
 
-                <li><a><b><h4>Gamana &nbsp;</h4></b></a></li>
-               
+                <!-- <li><a><b><h4>Gamana &nbsp;</h4></b></a></li> -->
+                <li>
+                    <img src='/images/Logo1.jpg' width="100" height="80">
+                </li>
+
                 <a class="dropbtn" href="/">HOME</a>
                 <div class="dropdown">
                     <button style="background-color: #222" class="dropbtn">LOOK FOR</button>
@@ -43,24 +46,46 @@
                 </div>
                 <a class="dropbtn" href="{{ route('visiting_place.index') }}">DESTINATION</a>
                     
-                <a class="dropbtn" href="{{ route('travel_packages.index') }}">PACKAGES
+                <a class="dropbtn" href="{{ route('travel_packages.index') }}">PACKAGES</a>
                 <a class="dropbtn" href="{{ route('travel_partner.index') }}">TRAVEL PARTNER</a>
+                <a class="dropbtn" href="{{ route('user_packages.index') }}">USER PACKAGES</a>
+
+
+                @guest
+                
+                @else
+                
+                @if(Auth::user()->role_id == 1)
+                    <div class="dropdown">
+                        <button style="background-color: #222" class="dropbtn">HOTEL MANAGEMENT</button>
+                        <div class="dropdown-content">
+                            <a href="{{ route('hotel_booking.allHotel') }}"><i class="fas fa-hotel"></i> All Hotels</a>
+                            <a href="{{ route('hotel_booking.create') }}"><i class="fas fa-hotel"></i> Add Hotels</a>
+                        </div>
+                    </div>
+
+                @endif
+                @endguest
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-
-
-
-
+    
                 @guest
                 <li><a href="{{ route('login') . '?previous=' . Request::fullUrl() }}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
                 <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
                 @else
 
-                @if(Auth::user()->role_id == 1)
-                <li><a href="{{ route('hotel_booking.allHotel') }}"><i class="fas fa-hotel"></i> All Hotels</a></li>
-                <li><a href="{{ route('hotel_booking.create') }}"><i class="fas fa-hotel"></i> Add Hotels</a></li>
-                @endif
+                <!-- @if(Auth::user()->role_id == 1)
+                    <div class="dropdown">
+                        <button style="background-color: #222" class="dropbtn">HOTEL MANAGEMENT</button>
+                        <div class="dropdown-content">
+                            <a href="{{ route('hotel_booking.allHotel') }}"><i class="fas fa-hotel"></i> All Hotels</a>
+                            <a href="{{ route('hotel_booking.create') }}"><i class="fas fa-hotel"></i> Add Hotels</a>
+                        </div>
+                    </div>
+
+                @endif -->
+               
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"> <i class="fas fa-user"></i>

@@ -18,7 +18,17 @@
   height: 300px;
   border-color: grey;
 }
+.innerCard {
+  transition: 0.3s;
+  width: 300px;
+  height: auto;
+  border-color: grey;
+  padding-left: 1px;
+}
 
+.label{
+  background-color: rgba(0, 130, 185, .8);
+}
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -28,7 +38,7 @@
 }
 table tr td {
 	padding-top: 20px;
-	width:200px;
+	width:150px;
 	color: white;
 }
 .selectPackage{
@@ -52,7 +62,7 @@ table tr td {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	transition: 0.3s;
 	width: 350px;
-  	height: 150px;
+  	height: 180px;
     margin: 20px 0;
     /*padding:30px;*/
 }
@@ -81,15 +91,15 @@ table tr td {
 				<td> 
 					<label>Favorite Packages : </label>
 				</td>
-				<td> 
-					<button type="button" class="btn btn-success">FUNNNN</button>
-
-				</td>				
+        @foreach ($packages as $packageDetails)
+  				<td style="width: auto; padding-right: 10px;"> 
+  					<button type="button" class="btn btn-success">{{$packageDetails->package_name}}</button>
+  				</td>		
+        @endforeach		
 			</tr>
 		</table>
 	    
 	</form>
-
 
 
 </div>
@@ -99,27 +109,7 @@ table tr td {
 
 <div style="padding-left: 150px;">
 
-	<div class="col-lg-4 col-md-4">
-		<div class="media">
-
-        	 <a class="pull-left" href="#">
-                <img class="media-object dp img-circle" src ="/images/profile.jpg" style="width: 100px;height:100px;">
-            </a>
-            
-            <div class="media-body">
-                <h4 class="media-heading">Hardik Sondagar <small> India</small></h4>
-                <h5>Software Developer at <a href="http://gridle.in">Gridle.in</a></h5>
-                <hr style="margin:8px auto">
-
-                <span class="label label-info">HTML5/CSS3</span>
-                <span class="label label-info">jQuery</span>
-                <span class="label label-info">CakePHP</span>
-            </div>
-        </div>
-		<br/>
-	</div>
-
-
+    @foreach (json_decode($searchDetails) as $userDetail)
 
 	<div class="col-lg-4 col-md-4">
 		<div class="media">
@@ -128,39 +118,37 @@ table tr td {
                 <img class="media-object dp img-circle" src ="/images/profile.jpg" style="width: 100px;height:100px;">
             </a>
             
-            <div class="media-body">
-                <h4 class="media-heading">Hardik Sondagar <small> India</small></h4>
-                <h5>Software Developer at <a href="http://gridle.in">Gridle.in</a></h5>
+            <div class="media-body" style="padding-top: 10px">
+                <h4 class="media-heading">{{$userDetail->first_name}}  {{$userDetail->last_name}}</h4> 
+                <small> {{$userDetail->gender}} </small>
+                <h5>{{$userDetail->email}} </h5>
+                <h5><b><i>{{$userDetail->country}}</i></b> </h5>
+
                 <hr style="margin:8px auto">
 
-                <span class="label label-info">HTML5/CSS3</span>
-                <span class="label label-info">jQuery</span>
-                <span class="label label-info">CakePHP</span>
+                <?php
+                  $catagories = $userDetail->tag;
+                  $data   = explode(',', $catagories);
+                ?>
+                <span class="innerCard" style="padding-left: 10px;">
+                  
+                  @foreach($data as $data)
+                    <div class="label col-lg-2 col-md-4 col-sm-4" style="width: auto; height: 20px; padding: 5px; margin: 6px; margin-bottom: 5px;">      {{$data}}
+                  </div>
+                   
+                  @endforeach
+
+                </span>
+
+        
             </div>
         </div>
 		<br/>
 	</div>
+
+
+    @endforeach
 	
-
-		<div class="col-lg-4 col-md-4">
-		<div class="media">
-
-        	 <a class="pull-left" href="#">
-                <img class="media-object dp img-circle" src ="/images/profile.jpg" style="width: 100px;height:100px;">
-            </a>
-            
-            <div class="media-body">
-                <h4 class="media-heading">Hardik Sondagar <small> India</small></h4>
-                <h5>Software Developer at <a href="http://gridle.in">Gridle.in</a></h5>
-                <hr style="margin:8px auto">
-
-                <span class="label label-info">HTML5/CSS3</span>
-                <span class="label label-info">jQuery</span>
-                <span class="label label-info">CakePHP</span>
-            </div>
-        </div>
-		<br/>
-	</div>
 
 
 

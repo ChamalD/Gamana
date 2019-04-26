@@ -107,7 +107,7 @@ class PackageController extends Controller
                 }
             }
         }
-        return view('travel_packages.show', ['searchResult' => $selectedPackages, 'searchDetails' => $request ]);
+        return view('travel_packages.show', ['searchResult' => json_encode($selectedPackages) , 'searchDetails' => $request ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -116,7 +116,8 @@ class PackageController extends Controller
      */
     public function create()
     {
-        //
+        return view('travel_packages.details');
+
     }
     /**
      *
@@ -124,26 +125,13 @@ class PackageController extends Controller
      */
     public function addPackage(Request $request)
     {
-        $package_id = $request->input('package_id');
-
-        
-
-        if(Auth::check()){
-            $selectPackage = SelectedPackage::create([                                //store comment data in the comment table
-                'user_id' => Auth::user()->id,
-                'package_id' => $request->input('package_id')
-            ]);
-            if($selectPackage){
-                return back()->with('success' , 'Package selected successfully');
-                // return view('travel_packages.show',['searchResult' => $selectedPackages, 'searchDetails' => $request ])
-                // ->with('success' , 'Package selected successfully');  
-            }
-        }
-
-        return back()->withInput()->with('errors', 'Error selecting a package');
-
+        //
     }
 
+    public function detail()
+    {
+        return view('travel_packages.details');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -152,7 +140,26 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $package_id = $request->input('package_id');
+        $searchResult = $request->input('searchResult');
+
+        $dataGetter = DB::table('selected_packages')
+            ->where('user_id', Auth::user()->id) 
+            ->where('package_id', $package_id) 
+            ->get();
+        
+        if(sizeof($dataGetter) === 0){
+            $selectPackage = SelectedPackage::create([                                //store comment data in the comment table
+                'user_id' => Auth::user()->id,
+                'package_id' => $request->input('package_id')
+            ]);
+            if($selectPackage){
+                 return view('travel_packages.show', ['searchResult' => $searchResult, 'searchDetails' => $request]);  
+                
+            }
+        }
+        return view('travel_packages.show', ['searchResult' => $searchResult, 'searchDetails' => $request]);
+
     }
 
     /**

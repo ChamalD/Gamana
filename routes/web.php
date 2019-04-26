@@ -67,9 +67,14 @@ Route::middleware(['auth'])->group(function() {
 
 
     Route::resource('travel_packages','PackageController');
+
     Route::resource('travel_partner','TravelPartnerController');
     Route::post('travel_packages/search', 'PackageController@search')->name('travel_packages.search');
-    Route::post('travel_packages/search/view', 'PackageController@view')->name('travel_packages.view');
 
-    Route::post('travel_packages/addPackage', 'PackageController@addPackage')->name('travel_packages.addPackage');
+    Route::resource('view_more','ViewMoreController');
+
+    Route::resource('user_packages','UserPackageController');
+    Route::post('user_packages', 'UserPackageController@removeElement')->name('user_packages.removeElement');
+
+
 });

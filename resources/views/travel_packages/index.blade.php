@@ -57,7 +57,7 @@ table tr td {
 					<input type="checkbox" name="WildLife" value="WildLife"> Wild Life<br>
 				</td>
 				<td>
-					<input type="checkbox" name="HistoricalPlaces" value="HistoricalPlaces"> Historical Places<br>
+					<input type="checkbox" name="HistoricalPlaces" value="Historical Places"> Historical Places<br>
 				</td>
 				<td>
 					<input type="checkbox" name="ReligiousPlaces" value="ReligiousPlaces"> Religious Places<br>

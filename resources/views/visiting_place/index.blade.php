@@ -216,7 +216,7 @@
     function search() {
         var search = {
             bounds: map.getBounds(),
-            types: ['museum','lodging','spa']
+            types: ['museum','lodging','spa', 'train_station', 'rv_park' , 'park' , 'city_hall' , 'hindu_temple' ]
         };
 
         places.nearbySearch(search, function(results, status) {

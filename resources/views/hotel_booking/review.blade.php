@@ -118,9 +118,7 @@ $grand_tot= $amount + $tax;
                 </div>
                 <br/>
                 <div _ngcontent-c34="" class="com-container ng-trigger ng-trigger-toggleHeight" style="opacity: 1;">
-                        <!----><div _ngcontent-c34="" class="room-guests ng-tns-c34-6">
-
-
+                        <div _ngcontent-c34="" class="room-guests ng-tns-c34-6">
                             <div _ngcontent-c34="" class="detail-wrap">
                                 <div _ngcontent-c34="" class="row">
                                     <div _ngcontent-c34="" class="col-md-3 infor-box">
@@ -192,10 +190,9 @@ $grand_tot= $amount + $tax;
                                     <p _ngcontent-c36="">ROOM TYPE: COLONIAL KING</p>
 
                                 </div>
-                                <!----><div _ngcontent-c36="" class="col-md-12 hotel-tripad padding-left-right-10">
-                                    <!---->
-                                    <ul _ngcontent-c36="">
 
+                                <div _ngcontent-c36="" class="col-md-12 hotel-tripad padding-left-right-10">
+                                    <ul _ngcontent-c36="">
                                         <li _ngcontent-c36="" >
                                             <span _ngcontent-c36="" class="pull-left">Nightly Rate</span>
                                             <span _ngcontent-c36="" class="pull-right">{{$data->price}}</span>
@@ -261,52 +258,49 @@ $grand_tot= $amount + $tax;
                     </div>
                 </div>
                 <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label for="cardNumber">CARD NUMBER</label>
-                                    <div class="input-group">
-                                        <input type="tel" class="form-control" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required=""  aria-required="true">
-                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="cardNumber">CARD NUMBER</label>
+                                <div class="input-group">
+                                    <input type="tel" class="form-control" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required=""  aria-required="true">
+                                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-7 col-md-7">
-                                <div class="form-group">
-                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-                                    <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required="" aria-required="true">
-                                </div>
-                            </div>
-                            <div class="col-xs-5 col-md-5 pull-right">
-                                <div class="form-group">
-                                    <label for="cardCVC">CV CODE</label>
-                                    <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required="" aria-required="true">
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-7 col-md-7">
+                            <div class="form-group">
+                                <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required="" aria-required="true">
                             </div>
                         </div>
-                        <br/>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <input class="subscribe btn btn-success btn-lg btn-block" type="submit" value="Start Subscription" >
+                        <div class="col-xs-5 col-md-5 pull-right">
+                            <div class="form-group">
+                                <label for="cardCVC">CV CODE</label>
+                                <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required="" aria-required="true">
                             </div>
                         </div>
-                        <div class="row" style="display:none;">
-                            <div class="col-xs-12">
-                                <p class="payment-errors"></p>
-                            </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input class="subscribe btn btn-success btn-lg btn-block" type="submit" value="Start Subscription" >
                         </div>
-
+                    </div>
+                    <div class="row" style="display:none;">
+                        <div class="col-xs-12">
+                            <p class="payment-errors"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- CREDIT CARD FORM ENDS HERE -->
-
         </div>
     </form>
 </div>
+
 </body>
 @endsection
 </html>
-
-

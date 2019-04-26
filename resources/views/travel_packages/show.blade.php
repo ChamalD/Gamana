@@ -90,9 +90,9 @@ table tr td {
 					?>> Wild Life<br/>
 				</td>
 				<td>
-					<input type="checkbox" name="HistoricalPlaces" value="HistoricalPlaces" 
+					<input type="checkbox" name="HistoricalPlaces" value="Historical Places" 
 					<?php 
-						if ($searchDetails->input('HistoricalPlaces')==="HistoricalPlaces")
+						if ($searchDetails->input('HistoricalPlaces')==="Historical Places")
 						{
 							echo('checked');
 						}
@@ -198,15 +198,20 @@ table tr td {
 
 <h2 style="padding-left: 150px; padding-bottom: 0.5px;">Packages</h2>
 <hr>
-@foreach ($searchResult as $element)
-	<form method="post" action="{{route('travel_packages.addPackage')}}">
+@foreach (json_decode($searchResult) as $element)
+	<form method="post" action="{{route('travel_packages.store')}}">
           					{{ csrf_field() }}
-
         <input  hidden value="{{$element->package_id}}" name="package_id"> 
+        <input  hidden  value="{{$searchResult}}" name="searchResult"> 
+		<input hidden name="selectedDates" 
+                       value="{{$searchDetails->input('selectedDates')}}">
+		
+
+ 
 		<div style="padding-left: 160px;">
 					<div class="col-lg-4 col-md-4 col-sm-4" style="margin-bottom: 30px;">
 						<div class="card">
-					  		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Sigiriya.jpg/300px-Sigiriya.jpg" width="300px" height="150px" alt="Avatar" >
+					  		<img src='/images/packages/{{$element->image}}.jpg' width="300px" height="150px" alt="Avatar" >
 					  		<div class="container">
 					    	<h4><b>{{$element->package_name}}</b></h4>
 					    		<div class="col-lg-3 col-md-3" style="padding-left: 1px;;">
@@ -216,7 +221,7 @@ table tr td {
 							<div class="container">
 
 								<div class="col-lg-3 col-md-3" style="padding-left: 1px;">
-				    				<a>view more</a>
+				    				<a href="{{ route('view_more.index') }}">view more</a>
 								</div>
 							</div>
 					  		<div class="container">
@@ -226,7 +231,7 @@ table tr td {
 								</div>
 
 					  		</div>
-						  <?php
+						  	<?php
 								$catagories = $element->tag;
 								$data   = explode(',', $catagories);
 							?>
@@ -252,9 +257,10 @@ table tr td {
 				</div>
 			</form>
 @endforeach
-
-
 @endsection
+
+
 </body>
+
 </html>
 

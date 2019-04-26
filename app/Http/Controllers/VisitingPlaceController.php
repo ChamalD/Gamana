@@ -27,14 +27,14 @@ class VisitingPlaceController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function check($place_name,$index_id, $name){
+    public function check($place_name,$index_id, $name) {
        $place=VisitingPlace::where('index_id', $index_id)->first();                 //fetch the relavent data from table
         if ($place === null){
             $this->store($index_id, $name);                                         //check whether its exist and if not store in the table
         }
-        $locPlace=VisitingPlace::where('index_id', $index_id)->first();
+        // $locPlace=VisitingPlace::where('index_id', $index_id)->first();
 
-        return view('visiting_place.check', ['name' => $name, "place_name"=>$place_name, 'place'=>$locPlace]);  //return to check view
+        return view('visiting_place.check', ['name' => $name, "place_name"=>$place_name, 'place'=>$place]);  //return to check view
     }
 
 
